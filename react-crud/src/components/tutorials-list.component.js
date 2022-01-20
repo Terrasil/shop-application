@@ -120,9 +120,9 @@ export default class TutorialsList extends Component {
               <div class="row">
                 <div class="col-md-3 text-center">
                   {(() => {
-                      if (dane.upload.indexOf('http://127.0.0.1:8080')) {
+                      if (dane.upload.indexOf('http://localhost:8000')) {
                           return (
-                            <img class="show img-fluid" src={dane.upload="http://127.0.0.1:8080"+dane.upload} alt={dane.title}/>
+                            <img class="show img-fluid" src={searchTitle==""?dane.upload="http://localhost:8000"+dane.upload:dane.upload=dane.upload} alt={dane.title}/>
                           )
                       }else{
                           return (

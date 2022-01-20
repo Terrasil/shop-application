@@ -1,11 +1,11 @@
 from rest_framework import serializers 
-from tutorials.models import Tutorial
+from oferty.models import Oferta
  
  
-class TutorialSerializer(serializers.ModelSerializer):
+class OfertySerializer(serializers.ModelSerializer):
  
     class Meta:
-        model = Tutorial
+        model = Oferta
         fields = ('id',
                   'title',
                   'description',

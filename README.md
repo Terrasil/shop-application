@@ -1,6 +1,21 @@
 # shop-application
 Przykładowa aplikacja przeznaczona do konteneryzacji w ramach przedmiotu "Aplikacje w architekturze Klient-Serwer"
 
-Komendy incjalizujące
+## Django
+#### Komendy incjalizujące
 source venv/scripts/activate/Scripts/activate
-pip install -r requirement.txt
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
+winpty python manage.py createsuperuser
+python manage.py runserver
+
+## React
+#### Komendy incjalizujące
+npm install
+npm run start
+
+#### W razie problemów
+npm cache clean --force
+rm -rf node_modules package-lock.json

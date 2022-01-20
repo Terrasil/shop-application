@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import status
-from tutorials.models import Tutorial
-from tutorials.serializers import TutorialSerializer
+from oferty.models import Oferta
+from oferty.serializers import OfertySerializer
 from rest_framework.decorators import api_view
 from rest_framework.parsers import MultiPartParser, FormParser, FileUploadParser
 from rest_framework import renderers
@@ -16,12 +16,12 @@ class PostView(APIView):
     parser_classes = (MultiPartParser, FormParser)
 
     def get(self, request, *args, **kwargs):
-        posts = Tutorial.objects.all()
-        serializer = TutorialSerializer(posts, many=True)
+        posts = Oferta.objects.all()
+        serializer = OfertySerializer(posts, many=True)
         return Response(serializer.data)
 
     def post(self, request, *args, **kwargs):
-        posts_serializer = TutorialSerializer(data=request.data)
+        posts_serializer = OfertySerializer(data=request.data)
         if posts_serializer.is_valid():
             posts_serializer.save()
             return Response(posts_serializer.data, status=status.HTTP_201_CREATED)
@@ -29,15 +29,15 @@ class PostView(APIView):
             print('error', posts_serializer.errors)
             return Response(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def delete(self, request, *args, **kwargs):
-        count = Tutorial.objects.all().delete()
+        count = Oferta.objects.all().delete()
         return Response({'message': '{} Tutorials were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Tutorial.objects.all()
-    serializer_class = TutorialSerializer
+    queryset = Oferta.objects.all()
+    serializer_class = OfertySerializer
 
 class SearchPostsView(generics.ListAPIView):
     search_fields = ['title']
     filter_backends = (filters.SearchFilter,)
-    queryset = Tutorial.objects.all()
-    serializer_class = TutorialSerializer
+    queryset = Oferta.objects.all()
+    serializer_class = OfertySerializer

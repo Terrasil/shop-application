@@ -52,7 +52,7 @@ export default class AddTutorial extends Component {
       formData.append("price", this.state.price);
       formData.append("upload", this.state.upload, this.state.upload.name);
 
-      axios.post("http://127.0.0.1:8080/api/tutorials", formData, {
+      axios.post("http://localhost:8000/api/oferty", formData, {
         headers: {
           'content-type': 'multipart/form-data'
         } 

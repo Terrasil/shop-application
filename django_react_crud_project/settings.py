@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     # Tutorials application 
-    'tutorials.apps.TutorialsConfig',
+    'oferty.apps.OfertyConfig',
     # CORS
     'corsheaders',
 ]

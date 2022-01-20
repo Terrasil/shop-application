@@ -6,6 +6,7 @@
     padding: 2rem;
     max-height: 24rem;
     min-height: 24rem;
+	object-fit: cover;
 }
 .row{
     margin: 0;
