@@ -51,8 +51,9 @@ export default class AddTutorial extends Component {
       formData.append("description", this.state.description);
       formData.append("price", this.state.price);
       formData.append("upload", this.state.upload, this.state.upload.name);
+	  const api_addres = process.env.REACT_APP_API_ADDRES.length ? process.env.REACT_APP_API_ADDRES : 'http://localhost:8000'
 
-      axios.post("http://localhost:8000/api/oferty", formData, {
+      axios.post(api_addres+"/api/oferty", formData, {
         headers: {
           'content-type': 'multipart/form-data'
         } 

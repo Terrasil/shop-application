@@ -13,6 +13,8 @@
     "@testing-library/user-event": "^12.6.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
+    "cross-env": "^7.0.3",
+    "process": "^0.11.10",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
@@ -22,10 +24,9 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "cross-env REACT_APP_API_ADDRES=${API_ADDRES} REACT_APP_EXCHANGE_SERVICE=${EXCHANGE_SERVICE} PORT=${PORT} react-scripts start",
+    "build": "cross-env REACT_APP_API_ADDRES=${API_ADDRES} REACT_APP_EXCHANGE_SERVICE=${EXCHANGE_SERVICE} PORT=${PORT} react-scripts build",
+    "eject": "cross-env REACT_APP_API_ADDRES=${API_ADDRES} REACT_APP_EXCHANGE_SERVICE=${EXCHANGE_SERVICE} PORT=${PORT} react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
