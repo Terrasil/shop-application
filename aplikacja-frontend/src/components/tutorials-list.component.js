@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TutorialDataService from "../services/tutorial.service";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 import {Opis} from './komponenty'
 
@@ -88,7 +88,7 @@ export default class TutorialsList extends Component {
   }
 
   render() {
-    const { searchTitle, tutorials, currentTutorial, currentIndex } = this.state;
+    const { searchTitle, tutorials/*, currentTutorial, currentIndex */} = this.state;
 
     return (
       <div class="w-75 mx-auto">
@@ -122,11 +122,11 @@ export default class TutorialsList extends Component {
                   {(() => {
                       if (dane.upload.indexOf(process.env.REACT_APP_API_ADDRES.length ? process.env.REACT_APP_API_ADDRES : 'http://localhost:8000')) {
                           return (
-                            <img class="show img-fluid" src={searchTitle=="" ? dane.upload = process.env.REACT_APP_API_ADDRES.length ? process.env.REACT_APP_API_ADDRES : 'http://localhost:8000' +dane.upload : dane.upload = dane.upload} alt={dane.title}/>
+                            <img  alt="alt" class="show img-fluid" src={searchTitle=="" ? dane.upload = process.env.REACT_APP_API_ADDRES.length ? process.env.REACT_APP_API_ADDRES : 'http://localhost:8000' +dane.upload : dane.upload = dane.upload} alt={dane.title}/>
                           )
                       }else{
                           return (
-                              <img class="show img-fluid" src={dane.upload} alt={dane.title}/>
+                              <img  alt="alt" class="show img-fluid" src={dane.upload} alt={dane.title}/>
                           )
                       }
                   })()}

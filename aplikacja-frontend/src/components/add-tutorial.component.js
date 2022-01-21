@@ -150,7 +150,7 @@ export default class AddTutorial extends Component {
 				  </button>
 				</div>
 				<div className="float-left">
-					<img className="show" src={this.state.image}/>
+					<img className="show" src={this.state.image} alt="alt"/>
 				</div>
               </div>
             </div>

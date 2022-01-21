@@ -104,10 +104,6 @@ function App() {
     );
 }
 
-function Products() {
-    return <Strona></Strona>;
-}
-  
 function Login() {
     return (
         <div class="login-panel">

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import TutorialDataService from "../services/tutorial.service";
 import Buttons from '../services/Buttons'
-import axios from "axios";
 
 export default class Tutorial extends Component {
   constructor(props) {
@@ -211,15 +210,15 @@ export default class Tutorial extends Component {
               <div className="form-group">
                 <label htmlFor="zdjecie"><strong>Zdjecie</strong></label>
                 <Buttons onChange={this.onChange} />
-                <img src={this.state.image}/>
+                <img alt="alt" src={this.state.image}/>
                 {(() => {
                   if (this.state.image) {
                       return (
-                        <img src={this.state.image}/>
+                        <img alt="alt" src={this.state.image}/>
                       )
                   }else{
                       return (
-                          <img src={currentTutorial.upload}/>
+                          <img  alt="alt" src={currentTutorial.upload}/>
                       )
                   }
                 })()}

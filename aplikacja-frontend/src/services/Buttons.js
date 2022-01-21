@@ -1,6 +1,5 @@
 import React from 'react'
-
-export default props => 
+const button  = props => 
   <div className='py-4 buttons fadein'>
     
     <div className='button'>
@@ -10,3 +9,4 @@ export default props =>
     </div>
 
   </div>
+export default button
