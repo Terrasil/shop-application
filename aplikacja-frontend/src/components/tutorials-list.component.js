@@ -39,7 +39,7 @@ export default class TutorialsList extends Component {
     TutorialDataService.getAll()
       .then(response => {
         this.setState({
-          tutorials: response.data
+          tutorials: response.data.reverse()
         });
         console.log(response.data);
       })
@@ -78,7 +78,7 @@ export default class TutorialsList extends Component {
     TutorialDataService.findByTitle(this.state.searchTitle)
       .then(response => {
         this.setState({
-          tutorials: response.data
+          tutorials: response.data.reverse()
         });
         console.log(response.data);
       })

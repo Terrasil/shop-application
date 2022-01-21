@@ -10,6 +10,7 @@ class OfertySerializer(serializers.ModelSerializer):
                   'title',
                   'description',
                   'price',
+                  'currency',
                   'published',
                   'upload',
                 )

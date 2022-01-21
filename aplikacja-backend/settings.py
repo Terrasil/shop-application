@@ -35,7 +35,7 @@ SECRET_KEY = 'lu=wxq!6vq)*rofl%(+v_-6x7q$d#3)i((int_2y)1y@_k#un5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,7 +79,7 @@ MIDDLEWARE = [
 ]
 
 # CORS
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8081',
     'http://localhost:8080',

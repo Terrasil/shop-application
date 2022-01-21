@@ -71,10 +71,10 @@ function App() {
                                 <Link to="/">Strona główna</Link>{/* <Link> z ModernUI*/}
                             </li>
                             <li>
-                                <Link to="/produkty">Lista produktów</Link>
+                                <Link to="/oferty">Lista ofert</Link>
                             </li>
                             <li>
-                                <Link to="/dodaj">Dodaj produkt</Link>
+                                <Link to="/dodaj">Dodaj ofertę</Link>
                             </li>
                             <li id="theme">
                                 <Button variant={theme ? 'light' : 'dark'} onClick={() => setDarkTheme(theme => !theme)}>
@@ -87,7 +87,7 @@ function App() {
                         <Route path="/login">
                             <Login />
                         </Route>
-                        <Route path="/produkty">
+                        <Route path="/oferty">
                             <TutorialsList />
                         </Route>
                         <Route path="/dodaj">

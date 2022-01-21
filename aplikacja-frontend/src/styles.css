@@ -4,9 +4,10 @@
 }
 .show{
     padding: 2rem;
-    max-height: 24rem;
-    min-height: 24rem;
+    max-height: 16rem;
+    min-height: 16rem;
 	object-fit: cover;
+	max-width: 16rem !important;
 }
 .row{
     margin: 0;
@@ -61,8 +62,8 @@
 .light-theme .element{
     color: black;
     background-color: rgb(234, 234, 234);
-    max-height: 24rem;
-    min-height: 24rem;
+    max-height: 16rem;
+    min-height: 16rem;
     text-align: left;
 }
 .light-theme footer {
@@ -187,8 +188,8 @@
 .dark-theme .element{
     color: white;
     background-color: rgb(24, 24, 24);
-    max-height: 24rem;
-    min-height: 24rem;
+    max-height: 16rem;
+    min-height: 16rem;
     text-align: left;
 }
 .dark-theme footer {

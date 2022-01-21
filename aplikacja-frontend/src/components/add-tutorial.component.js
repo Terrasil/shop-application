@@ -90,7 +90,7 @@ export default class AddTutorial extends Component {
     return (
       <div class="w-50 mx-auto">
         <div className="submit-form">
-          <h4 class="formTitle"><center>Dodaj nowy produkt</center></h4>
+          <h4 class="formTitle"><center>Dodaj nową ofertę</center></h4>
           {this.state.submitted ? (
             <div>
               <h4>You submitted successfully!</h4>
@@ -142,13 +142,17 @@ export default class AddTutorial extends Component {
               </div>
 
               <div className="form-group">
-                <Buttons onChange={this.onChange} />
-                <img src={this.state.image}/>
-              </div>
+				<div className="float-right">
+					<Buttons onChange={this.onChange} />
 
-              <button onClick={this.saveTutorial} className="btn btn-success">
-                Zapisz
-              </button>
+				  <button onClick={this.saveTutorial} className="btn btn-success">
+					Zapisz
+				  </button>
+				</div>
+				<div className="float-left">
+					<img className="show" src={this.state.image}/>
+				</div>
+              </div>
             </div>
           )}
         </div>

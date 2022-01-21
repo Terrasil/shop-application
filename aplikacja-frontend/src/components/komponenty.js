@@ -8,15 +8,15 @@ import xiaomi from "./images/xiaomi_redmi_note_9_pro.png"
 */
 export class Header extends React.Component{
     componentDidMount(){
-        document.title = "Patryk Morawski 185IC B1 - Laboratorium 6"
+        document.title = "Patryk Morawski 185IC A1 - Oferty"
     }
     render(){
         return(
             <header class='shadow'>
                 <div class="row">
                     <div class="name">
-                        <h1>SHOPPER</h1>
-                        <h5>Sklep internetowy</h5> 
+                        <h1>OFERTY</h1>
+                        <h5>Internetowa tablica ogloszen</h5> 
                     </div>
                 </div>
             </header>
@@ -27,7 +27,7 @@ export class Footer extends React.Component{
     render(){
         return(
             <footer>
-                Copyright © Patryk Morawski 2020
+                Copyright © Patryk Morawski 2022
             </footer>
         );
     }
@@ -109,9 +109,9 @@ export class Oferta extends React.Component{
 export function Opis(info) {  
     return (  
       <div>  
-            <h6>{info.informacje.title}</h6>   
+            <h5>{info.informacje.title}</h5>   
             <span>{info.informacje.description}</span><br/><br/> 
-            <span><b>{info.informacje.price} zł</b></span> 
+            <span><b>{info.informacje.price} {info.informacje.currency}</b></span> 
       </div>  
     );  
   }  

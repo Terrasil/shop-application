@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default props => 
-  <div className='buttons fadein'>
+  <div className='py-4 buttons fadein'>
     
     <div className='button'>
       <label htmlFor='single'>
