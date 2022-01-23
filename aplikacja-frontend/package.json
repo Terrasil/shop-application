@@ -1,6 +1,6 @@
 {
-  "name": "react-crud",
-  "version": "0.1.0",
+  "name": "aplikacja-frontendowa",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
@@ -24,15 +24,21 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "cross-env REACT_APP_API_ADDRES=${API_ADDRES} REACT_APP_EXCHANGE_SERVICE=${EXCHANGE_SERVICE} PORT=${PORT} react-scripts start",
-    "build": "cross-env REACT_APP_API_ADDRES=${API_ADDRES} REACT_APP_EXCHANGE_SERVICE=${EXCHANGE_SERVICE} PORT=${PORT} react-scripts build",
-    "eject": "cross-env REACT_APP_API_ADDRES=${API_ADDRES} REACT_APP_EXCHANGE_SERVICE=${EXCHANGE_SERVICE} PORT=${PORT} react-scripts eject"
+    "start": "cross-env REACT_APP_API_ADDRESS=${API_ADDRESS} REACT_APP_EXCHANGE_SERVICE_ADDRESS=${EXCHANGE_SERVICE_ADDRESS} PORT=${PORT} react-scripts start",
+    "build": "cross-env REACT_APP_API_ADDRESS=${API_ADDRESS} REACT_APP_EXCHANGE_SERVICE_ADDRESS=${EXCHANGE_SERVICE_ADDRESS} PORT=${PORT} react-scripts build",
+    "eject": "cross-env REACT_APP_API_ADDRESS=${API_ADDRESS} REACT_APP_EXCHANGE_SERVICE_ADDRESS=${EXCHANGE_SERVICE_ADDRESS} PORT=${PORT} react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "eqeqeq": "off",
+      "no-unused-vars": "off",
+      "no-self-assign": "off",
+      "react/jsx-no-duplicate-props": "off"
+    }
   },
   "browserslist": {
     "production": [

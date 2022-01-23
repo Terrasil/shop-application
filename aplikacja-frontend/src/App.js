@@ -47,7 +47,7 @@ class App extends Component {
 export default App;*/
 import React  from 'react';
 import {Button} from 'react-bootstrap';
-import {Footer, Header, Strona} from './components/komponenty'
+import {Footer, Header} from './components/komponenty'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {InputAdornment, Grid, TextField, Button as ButtonMUI} from "@material-ui/core"
 import { AccountCircle, LockRounded } from '@material-ui/icons';
