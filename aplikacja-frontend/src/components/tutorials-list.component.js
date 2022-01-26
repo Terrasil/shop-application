@@ -120,9 +120,9 @@ export default class TutorialsList extends Component {
               <div class="row">
                 <div class="col-md-3 text-center">
                   {(() => {
-                      if (dane.upload.indexOf(process.env.REACT_APP_API_ADDRES.length ? process.env.REACT_APP_API_ADDRES : 'http://localhost:8000')) {
+                      if (dane.upload.indexOf(process.env.REACT_APP_API_ADDRESS.length ? process.env.REACT_APP_API_ADDRESS : 'http://localhost:8000')) {
                           return (
-                            <img  alt="alt" class="show img-fluid" src={searchTitle==="" ? dane.upload = process.env.REACT_APP_API_ADDRES.length ? process.env.REACT_APP_API_ADDRES : 'http://localhost:8000' +dane.upload : dane.upload = dane.upload} alt={dane.title}/>
+                            <img  alt="alt" class="show img-fluid" src={searchTitle==="" ? dane.upload = process.env.REACT_APP_API_ADDRESS.length ? process.env.REACT_APP_API_ADDRESS : 'http://localhost:8000' +dane.upload : dane.upload = dane.upload} alt={dane.title}/>
                           )
                       }else{
                           return (

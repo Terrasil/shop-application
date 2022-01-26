@@ -48,10 +48,11 @@ export default class AddTutorial extends Component {
       console.log(this.state.upload)
       console.log(this.state.upload.name)
       formData.append("title", this.state.title);
+      formData.append("currency", this.state.currency);
       formData.append("description", this.state.description);
       formData.append("price", this.state.price);
       formData.append("upload", this.state.upload, this.state.upload.name);
-	  const api_addres = process.env.REACT_APP_API_ADDRES.length ? process.env.REACT_APP_API_ADDRES : 'http://localhost:8000'
+	  const api_addres = process.env.REACT_APP_API_ADDRESS.length ? process.env.REACT_APP_API_ADDRESS : 'http://localhost:8000'
 
       axios.post(api_addres+"/api/oferty", formData, {
         headers: {
@@ -67,6 +68,7 @@ export default class AddTutorial extends Component {
     this.setState({
       id: null,
       title: "",
+      currency: "",
       description: "",
       price: null,
       published: false,
