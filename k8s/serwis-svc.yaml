@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: serwis-svc
+spec:
+  ports:
+  - port: 8081
+  selector:
+    app: serwis
+  clusterIP: None

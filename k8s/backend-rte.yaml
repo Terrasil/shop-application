@@ -1,0 +1,16 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app: backend
+  name: backend-rte
+spec:
+  host: "backend-labproj11.apps.ocp.lab.cloudpak.site"
+  port:
+    targetPort: 8000
+  to:
+    kind: "Service"
+    name: backend-svc
+    weight: null
+status:

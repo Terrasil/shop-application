@@ -1,0 +1,16 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app: frontend
+  name: frontend-rte
+spec:
+  host: "frontend-labproj11.apps.ocp.lab.cloudpak.site"
+  port:
+    targetPort: 3000
+  to:
+    kind: "Service"
+    name: frontend-svc
+    weight: null
+status:

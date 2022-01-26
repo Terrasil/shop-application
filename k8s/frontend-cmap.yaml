@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-cmap
+data:
+  API_ADDRESS: "http://backend-labproj11.apps.ocp.lab.cloudpak.site"
+  EXCHANGE_SERVICE_ADDRESS: "http://service-labproj11.apps.ocp.lab.cloudpak.site"
+  PORT: "3000"

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: serwis
+spec:
+  selector:
+    matchLabels:
+      app: serwis
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: serwis
+    spec:
+      containers:
+      - image: default-route-openshift-image-registry.apps.ocp.lab.cloudpak.site/labproj11/serwis:1.0
+        name: serwis
+        env:
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: serwis-cmap
+                key: PORT

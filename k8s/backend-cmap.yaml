@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-cmap
+data:
+  DB_HOST: "mysql"
+  DB_PORT: "3306"
+  PORT: "8000"

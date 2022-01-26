@@ -1,0 +1,16 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app: serwis
+  name: serwis-rte
+spec:
+  host: "serwis-labproj11.apps.ocp.lab.cloudpak.site"
+  port:
+    targetPort: 8081
+  to:
+    kind: "Service"
+    name: serwis-svc
+    weight: null
+status:

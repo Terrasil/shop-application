@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - image: default-route-openshift-image-registry.apps.ocp.lab.cloudpak.site/labproj11/backend:1.0
+        name: backend
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: DB_PASSWORD
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: DB_NAME
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: DB_USER
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: backend-cmap
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: backend-cmap
+              key: DB_PORT
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: backend-cmap
+              key: PORT
+        volumeMounts:
+        - name: backend-persistent-storage
+          mountPath: /files/phone
+      volumes:
+      - name: backend-persistent-storage
+        persistentVolumeClaim:
+          claimName: backend-pvc

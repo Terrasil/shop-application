@@ -1,0 +1,1 @@
+kubectl exec -it <nazwa_poda> -- /bin/bash
