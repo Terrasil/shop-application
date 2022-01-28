@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Buttons from '../services/Buttons'
 import axios from "axios";
+import http from "../http-common";
+import Select from 'react-select'
 
 export default class AddTutorial extends Component {
   constructor(props) {
@@ -11,16 +13,20 @@ export default class AddTutorial extends Component {
     this.saveTutorial = this.saveTutorial.bind(this);
     this.newTutorial = this.newTutorial.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.getCurr = this.getCurr.bind(this);
+    this.onClickCurrencies = this.onClickCurrencies.bind(this);
 
     this.state = {
       id: null,
       title: "",
       description: "", 
+      currency: "",
       price: null, 
       published: false,
       upload: [],
       submitted: false,
       image: null,
+      currencies: []
     };
   }
 
@@ -42,6 +48,14 @@ export default class AddTutorial extends Component {
     });
     console.log(this.state)
   }
+  onClickCurrencies(){
+    const _curr = this.getCurr
+    console.log(_curr)
+    this.setState({
+      currencies: _curr
+    });
+    console.log(this.state)
+  }
 
   saveTutorial() {
       const formData = new FormData();
@@ -52,7 +66,7 @@ export default class AddTutorial extends Component {
       formData.append("description", this.state.description);
       formData.append("price", this.state.price);
       formData.append("upload", this.state.upload, this.state.upload.name);
-	  const api_addres = process.env.REACT_APP_API_ADDRESS.length ? process.env.REACT_APP_API_ADDRESS : 'http://localhost:8000'
+	    const api_addres = process.env.REACT_APP_API_ADDRESS.length ? process.env.REACT_APP_API_ADDRESS : 'http://localhost:8000'
 
       axios.post(api_addres+"/api/oferty", formData, {
         headers: {
@@ -62,6 +76,20 @@ export default class AddTutorial extends Component {
       this.setState({
         submitted:true
       })
+  }
+  
+  getCurr() {
+    axios.get(rocess.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS.length ? process.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS+"/currencies" : 'http://localhost:8081/currencies')
+    .then((response) => {
+      console.log(response.data);
+      console.log(response.status);
+      console.log(response.statusText);
+      console.log(response.headers);
+      console.log(response.config);
+    });
+    //console.log("getting service")
+    //console.log(http.get(rocess.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS.length ? process.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS+"/currencies" : 'http://localhost:8081/currencies'))
+    //return JSON.parse(JSON.stringify(http.get(rocess.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS.length ? process.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS+"/currencies" : 'http://localhost:8081/currencies')));
   }
  
   newTutorial() {
@@ -75,7 +103,8 @@ export default class AddTutorial extends Component {
       //here
       upload: null,
       image: null,
-      submitted: false
+      submitted: false,
+      currencies: []
     });
     console.log(this.state.file)
   }
@@ -89,6 +118,7 @@ export default class AddTutorial extends Component {
   }
 
   render() {
+    this.getCurr
     return (
       <div class="w-50 mx-auto">
         <div className="submit-form">
@@ -142,18 +172,20 @@ export default class AddTutorial extends Component {
                   name="price"
                 />
               </div>
-
               <div className="form-group">
-				<div className="float-right">
-					<Buttons onChange={this.onChange} />
+                <Select onClick={this.onClickCurrencies} options={this.state.currencies} />
+              </div>
+              <div className="form-group">
+                <div className="float-right">
+                  <Buttons onChange={this.onChange} />
 
-				  <button onClick={this.saveTutorial} className="btn btn-success">
-					Zapisz
-				  </button>
-				</div>
-				<div className="float-left">
-					<img className="show" src={this.state.image} alt="alt"/>
-				</div>
+                  <button onClick={this.saveTutorial} className="btn btn-success">
+                  Zapisz
+                  </button>
+                </div>
+                <div className="float-left">
+                  <img className="show" src={this.state.image} alt="alt"/>
+                </div>
               </div>
             </div>
           )}

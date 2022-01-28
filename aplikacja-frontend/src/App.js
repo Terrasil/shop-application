@@ -52,6 +52,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {InputAdornment, Grid, TextField, Button as ButtonMUI} from "@material-ui/core"
 import { AccountCircle, LockRounded } from '@material-ui/icons';
 
+import Select from 'react-select'
 
 import AddTutorial from "./components/add-tutorial.component";
 import Tutorial from "./components/tutorial.component";
@@ -80,6 +81,9 @@ function App() {
                                 <Button variant={theme ? 'light' : 'dark'} onClick={() => setDarkTheme(theme => !theme)}>
                                     {theme ? 'Light Mode' : 'Dark Mode'}
                                 </Button> 
+                            </li>
+                            <li id="theme">
+                               <Select/>
                             </li>
                         </ul>
                     </nav>

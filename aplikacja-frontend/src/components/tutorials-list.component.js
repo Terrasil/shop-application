@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TutorialDataService from "../services/tutorial.service";
 //import { Link } from "react-router-dom";
+import Select from 'react-select'
 
 import {Opis} from './komponenty'
 
@@ -18,7 +19,8 @@ export default class TutorialsList extends Component {
       tutorials: [],
       currentTutorial: null,
       currentIndex: -1,
-      searchTitle: ""
+      searchTitle: "",
+      currencies: []
     };
   }
 

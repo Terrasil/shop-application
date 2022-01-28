@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TutorialDataService from "../services/tutorial.service";
 import Buttons from '../services/Buttons'
+import Select from 'react-select'
 
 export default class Tutorial extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export default class Tutorial extends Component {
         //here
         upload: [],
         image: null,
-
+        currencies: []
       },
       message: ""
     };
@@ -206,7 +207,9 @@ export default class Tutorial extends Component {
                   onChange={this.onChangePrice}
                 />
               </div>
-
+              <div className="form-group">
+                <Select options={this.state.currencies} />
+              </div>
               <div className="form-group">
                 <label htmlFor="zdjecie"><strong>Zdjecie</strong></label>
                 <Buttons onChange={this.onChange} />
