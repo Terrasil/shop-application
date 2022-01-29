@@ -4,6 +4,8 @@ var app = express();
 var fs = require("fs");
 var cron = require('node-cron');
 
+const cors = require('cors');
+app.use(cors())
 const request = require('request');
 
 let url = "http://www.floatrates.com/daily/usd.json";
@@ -56,6 +58,7 @@ function updateExchange(){
 }
 
 app.get('/', function (req, res) {
+  res.set('Access-Control-Allow-Origin', '*');
   let value = req.query.value || 1
   let from = req.query.from
   let to = req.query.to
@@ -79,6 +82,7 @@ app.get('/', function (req, res) {
 
 
 app.get('/currencies', function (req, res) {
+  res.set('Access-Control-Allow-Origin', '*');
 	res.end( JSON.stringify(currencies) );
 })
 

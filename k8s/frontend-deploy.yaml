@@ -14,7 +14,7 @@ spec:
         app: frontend
     spec:
       containers:
-      - image: default-route-openshift-image-registry.apps.ocp.lab.cloudpak.site/labproj11/frontend:1.0
+      - image: default-route-openshift-image-registry.apps.ocp.lab.cloudpak.site/labproj11/frontend:7.0
         name: frontend
         env:
           - name: API_ADDRESS

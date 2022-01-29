@@ -13,9 +13,9 @@ export default class AddTutorial extends Component {
     this.saveTutorial = this.saveTutorial.bind(this);
     this.newTutorial = this.newTutorial.bind(this);
     this.onChange = this.onChange.bind(this);
-    this.getCurr = this.getCurr.bind(this);
-    this.onClickCurrencies = this.onClickCurrencies.bind(this);
-
+    
+    
+    
     this.state = {
       id: null,
       title: "",
@@ -48,14 +48,6 @@ export default class AddTutorial extends Component {
     });
     console.log(this.state)
   }
-  onClickCurrencies(){
-    const _curr = this.getCurr
-    console.log(_curr)
-    this.setState({
-      currencies: _curr
-    });
-    console.log(this.state)
-  }
 
   saveTutorial() {
       const formData = new FormData();
@@ -78,18 +70,23 @@ export default class AddTutorial extends Component {
       })
   }
   
-  getCurr() {
-    axios.get(rocess.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS.length ? process.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS+"/currencies" : 'http://localhost:8081/currencies')
+
+  componentDidMount() {
+    axios.get(process.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS.length ? process.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS+"/currencies" : 'http://localhost:8081/currencies')
     .then((response) => {
-      console.log(response.data);
-      console.log(response.status);
-      console.log(response.statusText);
-      console.log(response.headers);
-      console.log(response.config);
+      let _currencies = []
+      for (const dat in response.data){
+        let _ = {}
+        _.value = response.data[dat].toUpperCase();
+        _.label = response.data[dat].toUpperCase();
+        _currencies.push(_)
+      }
+      this.setState({
+        currencies: _currencies
+      });
+      console.log(this.state.currencies)
     });
-    //console.log("getting service")
-    //console.log(http.get(rocess.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS.length ? process.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS+"/currencies" : 'http://localhost:8081/currencies'))
-    //return JSON.parse(JSON.stringify(http.get(rocess.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS.length ? process.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS+"/currencies" : 'http://localhost:8081/currencies')));
+    console.log(this.state.currencies)
   }
  
   newTutorial() {
@@ -118,7 +115,6 @@ export default class AddTutorial extends Component {
   }
 
   render() {
-    this.getCurr
     return (
       <div class="w-50 mx-auto">
         <div className="submit-form">
@@ -173,7 +169,7 @@ export default class AddTutorial extends Component {
                 />
               </div>
               <div className="form-group">
-                <Select onClick={this.onClickCurrencies} options={this.state.currencies} />
+                <Select options={this.state.currencies} />
               </div>
               <div className="form-group">
                 <div className="float-right">
