@@ -6,6 +6,7 @@ class UploadFileForm(forms.ModelForm):
             fields = (
                   'title',
                   'description',
+                  'currency',
                   'price',
                   'upload',
                 )

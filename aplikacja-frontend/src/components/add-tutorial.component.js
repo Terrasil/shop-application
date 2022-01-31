@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Buttons from '../services/Buttons'
 import axios from "axios";
-import http from "../http-common";
 import Select from 'react-select'
 
 export default class AddTutorial extends Component {
@@ -84,9 +83,7 @@ export default class AddTutorial extends Component {
       this.setState({
         currencies: _currencies
       });
-      console.log(this.state.currencies)
     });
-    console.log(this.state.currencies)
   }
  
   newTutorial() {

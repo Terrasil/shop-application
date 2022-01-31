@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TutorialDataService from "../services/tutorial.service";
 import Buttons from '../services/Buttons'
 import Select from 'react-select'
+import axios from "axios";
 
 export default class Tutorial extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ export default class Tutorial extends Component {
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangePrice = this.onChangePrice.bind(this);
+    this.onChangeCurrency = this.onChangeCurrency.bind(this);
     this.getTutorial = this.getTutorial.bind(this);
     this.updatePublished = this.updatePublished.bind(this);
     this.updateTutorial = this.updateTutorial.bind(this);
@@ -19,6 +21,7 @@ export default class Tutorial extends Component {
       currentTutorial: {
         id: null,
         title: "",
+        currency: "",
         description: "",
         price:null,
         published: false,
@@ -33,6 +36,19 @@ export default class Tutorial extends Component {
 
   componentDidMount() {
     this.getTutorial(this.props.match.params.id);
+    axios.get(process.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS.length ? process.env.REACT_APP_EXCHANGE_SERVICE_ADDRESS+"/currencies" : 'http://localhost:8081/currencies')
+    .then((response) => {
+      let _currencies = []
+      for (const dat in response.data){
+        let _ = {}
+        _.value = response.data[dat].toUpperCase();
+        _.label = response.data[dat].toUpperCase();
+        _currencies.push(_)
+      }
+      this.setState({
+        currencies: _currencies
+      });
+    });
   }
 
   /*onChange = e => {
@@ -65,6 +81,20 @@ export default class Tutorial extends Component {
         currentTutorial: {
           ...prevState.currentTutorial,
           title: title
+        }
+      };
+    });
+  }
+
+  
+  onChangeCurrency(e) {
+    const currency = e.value;
+
+    this.setState(function(prevState) {
+      return {
+        currentTutorial: {
+          ...prevState.currentTutorial,
+          currency: currency
         }
       };
     });
@@ -136,6 +166,7 @@ export default class Tutorial extends Component {
       formData.append("title", this.state.currentTutorial.title);
       formData.append("description", this.state.currentTutorial.description);
       formData.append("price", this.state.currentTutorial.price);
+      formData.append("currency", this.state.currentTutorial.currency);
       if (this.state.upload){
         formData.append("upload", this.state.upload, this.state.upload.name);
       }
@@ -208,20 +239,20 @@ export default class Tutorial extends Component {
                 />
               </div>
               <div className="form-group">
-                <Select options={this.state.currencies} />
+                <Select value={currentTutorial.currency} onChange={this.onChangeCurrency} options={this.state.currencies} />
               </div>
               <div className="form-group">
                 <label htmlFor="zdjecie"><strong>Zdjecie</strong></label>
                 <Buttons onChange={this.onChange} />
-                <img alt="alt" src={this.state.image}/>
+                <img className="show" alt="alt" src={currentTutorial.upload}/>
                 {(() => {
                   if (this.state.image) {
                       return (
-                        <img alt="alt" src={this.state.image}/>
+                        <img className="show" alt="alt" src={this.state.image}/>
                       )
                   }else{
                       return (
-                          <img  alt="alt" src={currentTutorial.upload}/>
+                          <img  className="show" alt="alt" src={currentTutorial.upload}/>
                       )
                   }
                 })()}

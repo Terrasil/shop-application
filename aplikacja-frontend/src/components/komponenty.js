@@ -1,4 +1,5 @@
 import React from "react"
+import axios from "axios";
 /*
 import lg from "./images/lg_k41s.png"
 import motorola from "./images/motorola_e7_plus.png"
@@ -111,7 +112,8 @@ export function Opis(info) {
       <div>  
             <h5>{info.informacje.title}</h5>   
             <span>{info.informacje.description}</span><br/><br/> 
-            <span><b>{info.informacje.price} {info.informacje.currency}</b></span> 
+            <span><b>{info.informacje.price} {info.informacje.currency}</b></span> <br/> 
+            <span><i>{info.informacje.przeliczone} PLN</i></span> 
       </div>  
     );  
   }  

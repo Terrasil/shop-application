@@ -59,6 +59,7 @@ function updateExchange(){
 
 app.get('/', function (req, res) {
   res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', '*');
   let value = req.query.value || 1
   let from = req.query.from
   let to = req.query.to
@@ -83,6 +84,7 @@ app.get('/', function (req, res) {
 
 app.get('/currencies', function (req, res) {
   res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', '*');
 	res.end( JSON.stringify(currencies) );
 })
 

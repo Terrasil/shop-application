@@ -11,6 +11,7 @@ import AddTutorial from "./components/add-tutorial.component";
 import Tutorial from "./components/tutorial.component";
 import TutorialsList from "./components/tutorials-list.component";
 
+
 function App() {
     const [theme, setDarkTheme] = React.useState(false)
     return (
@@ -35,7 +36,7 @@ function App() {
                                 </Button> 
                             </li>
                             <li id="theme">
-                               <Select/>
+                                <Select/>
                             </li>
                         </ul>
                     </nav>

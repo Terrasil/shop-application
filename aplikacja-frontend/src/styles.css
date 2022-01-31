@@ -2,6 +2,8 @@
     font-family: titleFont;
     src: url(./fonts/Atmospheric.ttf);
 }
+a { text-decoration: none; }
+a:hover { text-decoration: none; }
 .show{
     padding: 2rem;
     max-height: 16rem;
